@@ -1,0 +1,36 @@
+# **TODO — Discord Bot ACFII (BIG FEATURES)**
+
+1. **RAG – ACFII Brain**
+   Bot care răspunde la întrebări folosind documentații + PDF-uri + cursuri, printr-un backend FastAPI cu vector DB. Comanda principală: `/ask`.
+
+2. **Task Manager intern (/task)**
+   Sistem de gestionare a taskurilor pentru echipă:
+
+   * `/task new`
+   * `/task assign`
+   * `/task list`
+   * `/task done`
+
+3. **GitHub Repo Analyzer**
+   Botul analizează repo-uri: commits, branch-uri, PR-uri, TODO-uri. Comanda: `/repo stats <link>`.
+
+4. **AI Moderation & Anti-Spam**
+   Filtrare toxicitate, spam, link-uri scam. Avertismente automate și acțiuni pe utilizator.
+
+5. **AI Image Generator**
+   Comanda `/imagine "<prompt>"` care generează imagini cu OpenAI Image API.
+
+6. **Music Player (Voice Channel DJ)**
+   Comenzi `/play`, `/skip`, `/queue`. Integrare cu YouTube pentru redare în voice chat.
+
+7. **Daily Standup Bot**
+   Colectează statusuri de la membri prin `/update` și postează automat rezumat zilnic pe canalul echipei.
+
+8. **Server Analytics Dashboard**
+   Statistici generate automat: useri activi, canale active, ore cu trafic maxim, grafice PNG. Comanda `/server stats`.
+
+9. **AI Code Review**
+   Botul face code review pe fișiere sau link-uri GitHub. Comanda: `/review <link>`.
+
+10. **XP & Leveling System**
+    Sistem de XP, leveling și roluri automate. Comanda `/rank` pentru afișarea profilului.
