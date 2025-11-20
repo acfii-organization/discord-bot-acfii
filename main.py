@@ -11,9 +11,15 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+from func.team_task.task_commands import TaskCommands # type: ignore
+
 @bot.event
 async def on_ready():
     print(f"Bot conectat ca {bot.user}")
+
+    synced = await bot.tree.sync()
+    print(f"Comenzi slash sincronizate: {len(synced)}")
+
 
 @bot.command()
 async def ping(ctx):
@@ -23,4 +29,15 @@ async def ping(ctx):
 async def salut(ctx):
     await ctx.send("salut si tie!")
 
-bot.run(TOKEN)
+
+async def setup():
+    """Încărcăm COG-urile înainte ca botul să pornească."""
+    await bot.add_cog(TaskCommands(bot))
+
+async def main():
+    async with bot:
+        await setup()
+        await bot.start(TOKEN)
+
+import asyncio
+asyncio.run(main())
