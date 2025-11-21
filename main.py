@@ -30,13 +30,27 @@ async def salut(ctx):
     await ctx.send("salut si tie!")
 
 
-async def setup():
-    """Încărcăm COG-urile înainte ca botul să pornească."""
-    await bot.add_cog(TaskCommands(bot))
+async def setup_cogs():
+    """Încărcăm toate COG-urile înainte ca botul să pornească."""
+    
+    # 2. Adaug COG-ul existent (TaskCommands)
+    try:
+        await bot.add_cog(TaskCommands(bot))
+        print("TaskCommands COG încărcat.")
+    except Exception as e:
+        print(f"Eroare la încărcarea TaskCommands: {e}")
+        
+    # 3. Adaug noul COG (GithubAnalyzerCog)
+    try:
+        await bot.add_cog(GithubAnalyzerCog(bot))
+        print("GithubAnalyzerCog COG încărcat.")
+    except Exception as e:
+        print(f"Eroare la încărcarea GithubAnalyzerCog: {e}")
+
 
 async def main():
     async with bot:
-        await setup()
+        await setup_cogs()
         await bot.start(TOKEN)
 
 import asyncio
