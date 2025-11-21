@@ -16,9 +16,14 @@ from func.team_task.task_commands import TaskCommands # type: ignore
 @bot.event
 async def on_ready():
     print(f"Bot conectat ca {bot.user}")
-
-    synced = await bot.tree.sync()
-    print(f"Comenzi slash sincronizate: {len(synced)}")
+    
+    #  Sincronizarea este esențială pentru a înregistra /repo, /task_list, și /task_new
+    try:
+        
+        synced = await bot.tree.sync()
+        print(f"Comenzi slash sincronizate: {len(synced)}")
+    except Exception as e:
+        print(f"Eroare la sincronizarea comenzilor: {e}")
 
 
 @bot.command()
