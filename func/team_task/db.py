@@ -1,4 +1,4 @@
-import aiosqlite
+import aiosqlite #type: ignore
 from datetime import datetime
 from .model import Task, STATUS_PENDING
 

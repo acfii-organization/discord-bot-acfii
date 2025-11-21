@@ -1,4 +1,4 @@
-import discord
+import discord  # type: ignore
 from .model import Task, STATUS_PENDING, STATUS_IN_PROGRESS
 
 def task_to_embed(task: Task) -> discord.Embed:
